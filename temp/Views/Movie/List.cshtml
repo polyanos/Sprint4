@@ -1,0 +1,12 @@
+﻿@using BioscoopSysteemWebsite.Domain.Entities
+@model List<Movie>
+
+@{
+    ViewBag.Title = "MovieList";
+}
+
+<h2>MovieList</h2>
+@foreach (Movie movie in Model)
+{
+    <span>@movie.Name</span>@Html.ActionLink("Edit", "Edit", new { id = movie.MovieId })@Html.ActionLink("Remove", "Remove", new { id = movie.MovieId })<br />
+}

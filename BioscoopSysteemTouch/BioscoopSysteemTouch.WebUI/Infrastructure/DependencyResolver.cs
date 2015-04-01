@@ -24,7 +24,6 @@ namespace BioscoopSysteemTouch.WebUI.Infrastructure
             return kernel.GetAll(serviceType);
        }
        private void AddBindings() {
-            kernel.Bind<IFilmRepository>().To<PersistentFilmRepository>();
             kernel.Bind<IRepository>().To<PersistentRepository>();
        }
     }

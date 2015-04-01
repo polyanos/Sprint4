@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics.CodeAnalysis;
+using System.Data.Entity.Infrastructure;
 
 namespace BioscoopSysteemWebsite.Domain.Implementations
 {
     [ExcludeFromCodeCoverage]
     public class PersistentRepository : IRepository
     {
-        private EFDbContext context = new EFDbContext();
+        private ApplicationDbContext context = ApplicationDbContext.Create();
 
         [ExcludeFromCodeCoverage]
         public IEnumerable<Show> GetAllShows()
@@ -144,6 +145,22 @@ namespace BioscoopSysteemWebsite.Domain.Implementations
         public IEnumerable<TicketSoort> GetTicketSoorten()
         {
             return context.TicketSoort;
+        }
+
+        public bool removeMovie(Movie movie)
+        {
+            bool success;
+            context.Movies.Remove(movie);
+            try
+            {
+                success = true;
+                context.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                success = false;
+            }
+            return success;
         }
     }
 }

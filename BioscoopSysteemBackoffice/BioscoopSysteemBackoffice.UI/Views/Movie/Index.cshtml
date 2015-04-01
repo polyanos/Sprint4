@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@Html.ActionLink("Film toevoegen", "Add")
+<br />
+@Html.ActionLink("Filmlijst bekijken", "List", new { showExpired = true })

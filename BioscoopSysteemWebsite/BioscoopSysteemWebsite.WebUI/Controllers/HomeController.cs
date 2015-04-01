@@ -157,11 +157,11 @@ namespace BioscoopSysteemWebsite.WebUI.Controllers
             Show show = repo.GetShowByID(id);
             //Get actor
 
-            string[] actorspermovie = new string[show.Movie.Actor.Count];
+            string[] actorspermovie = new string[show.Movie.Actors.Count];
             int x = 0;
-            foreach (Actor actor in show.Movie.Actor)
+            foreach (Actor actor in show.Movie.Actors)
             {
-                actorspermovie[x] = actor.ActorName;
+                actorspermovie[x] = actor.Name;
                 x++;
             }
             string allActors = string.Join(", <br />", actorspermovie);

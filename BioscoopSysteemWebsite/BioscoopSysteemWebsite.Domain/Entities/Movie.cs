@@ -15,7 +15,6 @@ namespace BioscoopSysteemWebsite.Domain.Entities
         //Gemaakt door: Frank Molengraaf
         [Key]
         public int MovieId { get; set; }
-
         public string Name { get; set; }
         public string Description { get; set; }
         public string EnglishDescription { get; set; }
@@ -31,10 +30,8 @@ namespace BioscoopSysteemWebsite.Domain.Entities
         public string FilmWebsite { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public virtual Pegi Pegi { get; set; }
-        public int PegiId { get; set; }
-        public virtual List<Actor> Actor { get; set; }
+        public ICollection<Actor> Actors { get; set; }
         public virtual Director Director { get; set; }
-        public int DirectorID { get; set; }
+        public virtual Pegi Pegi { get; set; }
     }
 }
